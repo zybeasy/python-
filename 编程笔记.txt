@@ -1,0 +1,6 @@
+1. 在python的源码中，经常会看到 XXXMixin 这样命名的类。
+minxin就是说明该类知识提供一些功能接口，一般就是给别的类增加功能，而且一般也不会对XXXMixin类实例化.
+例如class Bird(Flyable):
+        XXX
+如果将Flyable命名为FlyableMixin，它的功能将更为清晰
+参看https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/0014320114981139589ac5f02944601ae22834e9c521415000
