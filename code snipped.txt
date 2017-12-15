@@ -1,0 +1,27 @@
+"""目录结构
+/
+  a.py
+  test/
+    __init__.py
+    b.py
+"""
+
+# /a.py
+import logging
+root = logging.getLogger()
+log1 = logging.getLogger("A")
+log2 = logging.getLogger(__name__)
+log3 = logging.getLogger("A.B")
+print root.parent, log1.parent, log2.parent, log3.parent
+from test import b
+"""Output:
+root root A
+test.a
+root
+"""
+
+# /test/b.py
+import logging
+print __name__
+LOG = logging.getLogger(__name__)
+print LOG.parent.name
