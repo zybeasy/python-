@@ -27,3 +27,36 @@ import logging
 print __name__
 LOG = logging.getLogger(__name__)
 print LOG.parent.name
+
+########################################################################################
+import contextlib
+@contextlib.contextmanager
+def a():
+  print "A before"
+  try:
+    yield
+  except:
+    print "A catch Exception"
+  print "A end"
+ 
+@contextlib.contextmanager
+def b():
+  print "B before"
+  try:
+    yield
+  except:
+    print "B catch Exception"
+  print "B end"
+
+with a(), b():  # contextmanager里例子，很好理解，就是直到try的作用范围的问题。
+  print "BEGIN"
+  raise Exception("ERROR")
+
+""" Output:
+A before
+B before
+BEGIN
+B catch Exception
+B end
+A end
+"""
