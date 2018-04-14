@@ -48,7 +48,7 @@ def b():
     print "B catch Exception"
   print "B end"
 
-# contextmanager里例子，很好理解，就是直到try的作用范围的问题。
+# contextmanager例子，很好理解，就是try的作用范围的问题。
 # 这个例子的风格在neutron代码中多处存在
 with a(), b(): 
   print "BEGIN"
