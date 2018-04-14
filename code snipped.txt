@@ -8,13 +8,15 @@
 
 # /a.py
 import logging
-root = logging.getLogger()
+log0 = logging.getLogger()
 log1 = logging.getLogger("A")
 log2 = logging.getLogger(__name__)
-log3 = logging.getLogger("A.B")
-print root.parent, log1.parent, log2.parent, log3.parent
+log3 = logging.getLogger("A.B") # logging是层次继承结构，如果没有log1，则log3的parent就是root
+print log0.parent, 
+print log1.parent.name, log2.parent.name, log3.parent.name
 from test import b
 """Output:
+None
 root root A
 test.a
 root
